@@ -1,0 +1,50 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake Generate",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+              "-S", "${workspaceFolder}/ui-interface",
+              "-B", "${workspaceFolder}/ui-interface/build",
+              "-G", "Visual Studio 17 2022"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "CMake configuration"
+        },
+        {
+            "label": "CMake Build",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+              "--build", "${workspaceFolder}/ui-interface/build",
+              "--config", "Release"
+            ],
+            "group": "build",
+            "dependsOn": ["CMake Generate"],
+            "problemMatcher": [],
+            "detail": "CMake build"
+        },
+        {
+            "label": "Build and Run Program",
+            "type": "shell",
+            "command": "${workspaceFolder}/ui-interface/build/Release/bug_sense_ui.exe",
+            "group": "build",
+            "dependsOn": ["CMake Build"],
+            "problemMatcher": [],
+            "detail": "CMake build"
+        },
+        {
+            "label": "Run Program",
+            "type": "shell",
+            "command": "${workspaceFolder}/ui-interface/build/Release/bug_sense_ui.exe",
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "CMake build"
+        }
+    ]
+}
