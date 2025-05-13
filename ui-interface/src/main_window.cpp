@@ -1,11 +1,6 @@
 #include "main_window.h"
 #include "ui_main_window.h"
 
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QMainWindow>
-#include <QtCharts/QChartView>
-#include <QtCharts/QLineSeries>
-
 QT_CHARTS_USE_NAMESPACE
 
 MainWindow::MainWindow(QWidget *parent)
@@ -13,9 +8,35 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    initializeChart();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::initializeChart()
+{
+    // Create the series and populate it
+    series = new QLineSeries();
+    series->append(0, 6);
+    series->append(2, 4);
+    series->append(3, 8);
+    series->append(7, 4);
+    series->append(10, 5);
+
+    // Create the chart and configure it
+    chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->createDefaultAxes();
+
+    // Create chart view
+    chartView = new QChartView(chart);
+    chartView->setFixedSize(600, 450);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    // Add chart view to layout
+    ui->chart_layout->addWidget(chartView);
 }
