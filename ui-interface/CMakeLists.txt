@@ -18,7 +18,7 @@ file(GLOB SOURCES "src/*.cpp" "include/*.h")
 
 set(Qt5_DIR "C:/Qt/qt5-build/qtbase-install/lib/cmake/Qt5")
 
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Charts REQUIRED)
 
 # Create the executable
 add_executable(
@@ -27,6 +27,7 @@ add_executable(
 )
 
 target_link_libraries(${PROJECT_NAME} 
-        PUBLIC
-        Qt5::Widgets 
+    PUBLIC
+    Qt5::Widgets 
+    Qt5::Charts
 )
