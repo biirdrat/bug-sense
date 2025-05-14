@@ -1,6 +1,7 @@
 #ifndef MAIN_WINDOW_H
 #define MAIN_WINDOW_H
 
+#include "Logger.h"
 #include <QMainWindow>
 #include <QtCharts/QChartView>
 #include <QtCharts/QLineSeries>
@@ -24,6 +25,7 @@ public:
     ~MainWindow();
     
     void initializeChart();
+    Logger* logger;
 
 private:
     Ui::MainWindow *ui;
@@ -32,5 +34,8 @@ private:
     QChart *chart;
     QLineSeries *series;
     QChartView *chartView;
+
+private slots:
+    void onLogMessage(const QString& message);
 };
 #endif // MAINWINDOW_H
