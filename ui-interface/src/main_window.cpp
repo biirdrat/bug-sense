@@ -1,5 +1,6 @@
 #include "main_window.h"
 #include "ui_main_window.h"
+#include <iostream>
 
 QT_CHARTS_USE_NAMESPACE
 
@@ -8,6 +9,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    Logger* logger = &Logger::getInstance();
+    connect(logger, &Logger::logMessageSignal, this, &MainWindow::onLogMessage);
+
     initializeChart();
 }
 
@@ -39,4 +44,9 @@ void MainWindow::initializeChart()
 
     // Add chart view to layout
     ui->chart_layout->addWidget(chartView);
+}
+
+void MainWindow::onLogMessage(const QString &message)
+{
+    std::cout << "YES";
 }
