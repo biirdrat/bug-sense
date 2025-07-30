@@ -34,9 +34,10 @@ void MainWindow::initializeChart()
 
     // Create chart view
     chartView = new QChartView(chart);
-    chartView->setFixedSize(600, 450);
+    chartView->setMinimumSize(550, 400);
+    chartView->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     chartView->setRenderHint(QPainter::Antialiasing);
 
     // Add chart view to layout
-    ui->chart_layout->addWidget(chartView);
+    ui->graph_layout->addWidget(chartView);
 }
