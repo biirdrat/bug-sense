@@ -7,10 +7,10 @@ QT_CHARTS_USE_NAMESPACE
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , logger(&Logger::getInstance())
 {
     ui->setupUi(this);
 
-    Logger* logger = &Logger::getInstance();
     connect(logger, &Logger::logMessageSignal, this, &MainWindow::onLogMessage);
 
     initializeChart();
@@ -49,5 +49,5 @@ void MainWindow::initializeChart()
 
 void MainWindow::onLogMessage(const QString& message)
 {
-
+    std::cout << message.toStdString() << std::endl;
 }
