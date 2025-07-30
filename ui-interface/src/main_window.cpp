@@ -44,5 +44,10 @@ void MainWindow::initializeChart()
     chartView->setRenderHint(QPainter::Antialiasing);
 
     // Add chart view to layout
-    ui->chart_layout->addWidget(chartView);
+    ui->graph_layout->addWidget(chartView);
+}
+
+void MainWindow::onLogMessage(const QString& message)
+{
+
 }
