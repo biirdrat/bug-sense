@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>800</height>
+    <width>1300</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,7 +42,20 @@ QTableWidget
 	padding-left: 10px;
 }
 
-</string>
+QPushButton#reset_connection_button
+{
+    background-color: rgb(93, 226, 255);
+}
+
+QPushButton:hover#reset_connection_button
+{
+    background-color: rgb(60, 203, 255);
+}
+
+QPushButton:pressed#reset_connection_button
+{
+    background-color: rgb(25, 118, 210);
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
@@ -345,7 +358,7 @@ QTableWidget
                  <property name="font">
                   <font>
                    <family>Calibri</family>
-                   <pointsize>22</pointsize>
+                   <pointsize>20</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -375,7 +388,7 @@ QTableWidget
                  <property name="font">
                   <font>
                    <family>Calibri</family>
-                   <pointsize>22</pointsize>
+                   <pointsize>20</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -434,8 +447,11 @@ QTableWidget
             <property name="bottomMargin">
              <number>0</number>
             </property>
-            <property name="spacing">
+            <property name="horizontalSpacing">
              <number>0</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>15</number>
             </property>
             <item row="0" column="0">
              <widget class="QFrame" name="status_frame">
@@ -550,6 +566,25 @@ QTableWidget
                </size>
               </property>
              </spacer>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="reset_connection_button">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Calibri</family>
+                <pointsize>20</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Reset Connection</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>

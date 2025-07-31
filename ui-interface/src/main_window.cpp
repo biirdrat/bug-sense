@@ -70,8 +70,8 @@ void MainWindow::onLogMessage(LogLevel log_level, const QString& formatted_messa
         case LogLevel::Info:
             textColor = QColor(70, 153, 47);
             break;
-        case LogLevel::Warning:
-            textColor = QColor(156, 152, 59);
+        case LogLevel::Warn:
+            textColor = QColor(255, 163, 5);
             break;
         case LogLevel::Error:
             textColor = QColor(199, 0, 0);
