@@ -28,11 +28,20 @@ QLabel#status_led:disabled
 
 QLabel#log_label
 {
-	background-color: rgb(0, 170, 255);
+	background-color: rgb(135, 135, 167);
 	border-top-left-radius: 7px;
 	border-top-right-radius: 7px;
 	padding-left: 10px;
 }
+
+
+QTableWidget
+{
+	border: none;
+	background-color: rgb(255, 255, 255);
+	padding-left: 10px;
+}
+
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -595,6 +604,15 @@ QLabel#log_label
            <property name="frameShadow">
             <enum>QFrame::Plain</enum>
            </property>
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <property name="showGrid">
+            <bool>true</bool>
+           </property>
+           <property name="gridStyle">
+            <enum>Qt::SolidLine</enum>
+           </property>
            <attribute name="horizontalHeaderVisible">
             <bool>false</bool>
            </attribute>
@@ -605,10 +623,10 @@ QLabel#log_label
             <bool>true</bool>
            </attribute>
            <attribute name="verticalHeaderVisible">
-            <bool>true</bool>
+            <bool>false</bool>
            </attribute>
            <attribute name="verticalHeaderStretchLastSection">
-            <bool>true</bool>
+            <bool>false</bool>
            </attribute>
            <column>
             <property name="text">

@@ -36,6 +36,6 @@ private:
     QChartView *chartView;
 
 private slots:
-    void onLogMessage(const QString& message);
+    void onLogMessage(LogLevel log_level, const QString& formatted_message);
 };
 #endif // MAINWINDOW_H

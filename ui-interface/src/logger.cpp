@@ -10,7 +10,10 @@ Logger::Logger(QObject *parent) : QObject(parent)
 {
 }
 
-void Logger::log(const QString& message)
+void Logger::log(LogLevel log_level, const QString& message)
 {
-    emit logMessageSignal(message);
+    QString timestamp = QDateTime::currentDateTime().toString("MM/dd/yyyy hh:mm:ss");
+    QString formattedMessage = QString("%1 - %2").arg(timestamp, message);
+
+    emit logMessageSignal(log_level, formattedMessage);
 }

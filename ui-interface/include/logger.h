@@ -3,6 +3,15 @@
 
 #include <QObject>
 #include <QString>
+#include <QDateTime>
+
+enum class LogLevel 
+{
+    Debug,
+    Info,
+    Warning,
+    Error
+};
 
 class Logger : public QObject
 {
@@ -11,10 +20,10 @@ class Logger : public QObject
 public:
     static Logger& getInstance();  // Singleton accessor
 
-    void log(const QString& message);  // Log method
+    void log(LogLevel log_level, const QString& message);  // Log method
 
 signals:
-    void logMessageSignal(const QString& message);
+    void logMessageSignal(LogLevel log_level, const QString& message);
 
 private:
     explicit Logger(QObject *parent = nullptr);
